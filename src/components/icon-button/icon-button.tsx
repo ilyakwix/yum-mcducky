@@ -5,11 +5,11 @@ import { Icon, IconOptions } from '../icon/icon';
 import styles from './icon-button.module.scss';
 
 export interface IconButtonProps extends ButtonProps {
-    icon?: IconOptions;
+    icon: IconOptions;
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-    ({ className, icon = 'close', ...props }, ref) => {
+    ({ className, icon, ...props }, ref) => {
         return (
             <Button className={classNames(styles.root, className)} {...props} ref={ref}>
                 <Icon icon={icon} />

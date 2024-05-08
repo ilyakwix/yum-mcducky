@@ -4,14 +4,16 @@ import { BaseButton, BaseButtonProps } from '../base-button/base-button';
 import styles from './button.module.scss';
 
 export interface ButtonProps extends BaseButtonProps {
-    variant?: 'primary' | 'secondary' | 'unstyled';
+    variant: 'primary' | 'secondary' | 'unstyled';
+    onClick: () => void;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant = 'secondary', children = 'Label', ...props }, ref) => {
+    ({ className, variant, children, onClick, ...props }, ref) => {
         return (
             <BaseButton
                 className={classNames(styles.root, styles[variant], className)}
+                onClick={onClick}
                 {...props}
                 ref={ref}
             >

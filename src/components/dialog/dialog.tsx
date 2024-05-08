@@ -15,15 +15,15 @@ export interface DialogElementsClassNames {
 
 export interface DialogProps extends DialogOptions {
     className?: string;
-    children?: ReactNode;
-    dismissible?: boolean;
+    children: ReactNode;
+    dismissible: boolean;
     elementsClassNames?: DialogElementsClassNames;
 }
 
 export const Dialog = ({
     className,
     elementsClassNames = {},
-    dismissible = false,
+    dismissible,
     children,
     ...props
 }: DialogProps) => {
@@ -42,7 +42,14 @@ export const Dialog = ({
                 {children}
                 {dismissible && (
                     <AriakitDialogDismiss
-                        render={<IconButton className={styles.dismissButton} icon="close" />}
+                        render={
+                            <IconButton
+                                className={styles.dismissButton}
+                                icon="close"
+                                variant={'unstyled'}
+                                onClick={() => console.log('Clicked')}
+                            />
+                        }
                     ></AriakitDialogDismiss>
                 )}
             </AriakitDialog>

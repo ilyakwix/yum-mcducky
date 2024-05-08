@@ -31,10 +31,10 @@ const iconDictionary = {
 
 export interface IconProps {
     className?: string;
-    icon?: IconOptions;
+    icon: IconOptions;
 }
 
-export const Icon = ({ className, icon = 'close' }: IconProps) => {
+export const Icon = ({ className, icon }: IconProps) => {
     const iconGlyph = iconDictionary[icon];
     return <div className={classNames(styles.root, className)}>{iconGlyph}</div>;
 };

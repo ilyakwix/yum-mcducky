@@ -8,16 +8,16 @@ export interface BaseCardElementsClassNames {
 }
 
 export interface BaseCardProps {
-    children?: ReactNode;
+    children: ReactNode;
     className?: string;
     elementsClassNames?: BaseCardElementsClassNames;
-    imageSrc?: string;
+    imageSrc: string;
 }
 
 export const BaseCard = ({
     className,
-    imageSrc = 'https://static.wixstatic.com/media/f09b13_6ec13d6fe0cc4ecb8834fe856605b9f6~mv2.jpg',
-    children = 'Card content',
+    imageSrc,
+    children,
     elementsClassNames = {},
 }: BaseCardProps) => {
     return (

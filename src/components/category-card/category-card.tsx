@@ -3,17 +3,12 @@ import classNames from 'classnames';
 import styles from './category-card.module.scss';
 
 export interface CategoryCardProps extends Omit<BaseCardProps, 'children'> {
-    counter?: number;
-    title?: string;
+    places: number;
+    title: string;
 }
 
-export const CategoryCard = ({
-    className,
-    counter = 1,
-    title = 'Category',
-    ...props
-}: CategoryCardProps) => {
-    const label = counter === 1 ? 'place' : 'places';
+export const CategoryCard = ({ className, places, title, ...props }: CategoryCardProps) => {
+    const label = places === 1 ? 'place' : 'places';
     return (
         <BaseCard
             className={classNames(styles.root, className)}
@@ -22,7 +17,7 @@ export const CategoryCard = ({
         >
             <h3 className={styles.title}>{title}</h3>
             <span className={styles.counterContainer}>
-                {counter} {label}
+                {places} {label}
             </span>
         </BaseCard>
     );

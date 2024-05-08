@@ -11,16 +11,17 @@ export interface NavLinkProps extends Omit<ReactRouterNavLinkProps, 'to'> {
     isActiveClassName?: string;
     isPendingClassName?: string;
     isTransitioningClassName?: string;
-    to?: To;
+    to: To;
+    children: React.ReactNode;
 }
 
 export const NavLink = ({
     className,
-    children = 'Nav Link',
+    children,
     isActiveClassName,
     isPendingClassName,
     isTransitioningClassName,
-    to = '/',
+    to,
     ...props
 }: NavLinkProps) => {
     return (

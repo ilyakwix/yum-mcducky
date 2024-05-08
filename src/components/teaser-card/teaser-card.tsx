@@ -12,7 +12,7 @@ export interface TeaserCardElementsClassNames extends BaseCardElementsClassNames
 }
 
 export interface TeaserCardProps extends Omit<BaseCardProps, 'children'> {
-    title?: string;
+    title: string;
     description?: string;
     elementsClassNames?: TeaserCardElementsClassNames;
 }
@@ -20,7 +20,7 @@ export interface TeaserCardProps extends Omit<BaseCardProps, 'children'> {
 export const TeaserCard = ({
     className,
     elementsClassNames = {},
-    title = 'Card title',
+    title,
     description,
     ...props
 }: TeaserCardProps) => {

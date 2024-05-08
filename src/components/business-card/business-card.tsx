@@ -7,16 +7,26 @@ export interface BusinessCardElementsClassNames extends BaseCardElementsClassNam
 }
 
 export interface BusinessCardProps extends Omit<BaseCardProps, 'children'> {
-    title?: string;
+    title: string;
     description?: string;
+    price: string;
+    currency: '$' | 'ֱֳִֵֵֶַַָָֻ₪';
+    rating: number;
+    deliveryTime: string;
+    deliveryTimeUnits: string;
     elementsClassNames?: BusinessCardElementsClassNames;
 }
 
 export const BusinessCard = ({
     className,
     elementsClassNames = {},
-    title = 'Business name',
+    title,
     description,
+    price,
+    currency,
+    rating,
+    deliveryTime,
+    deliveryTimeUnits,
     ...props
 }: BusinessCardProps) => {
     return (
@@ -31,15 +41,16 @@ export const BusinessCard = ({
                     <span className={styles.description}>{description}</span>
                 </div>
                 <div className={styles.deliveryTimeContainer}>
-                    <span className={styles.time}>35-45 </span>
-                    <span className={styles.units}>min</span>
+                    <span className={styles.time}>{deliveryTime} </span>
+                    <span className={styles.units}>{deliveryTimeUnits}</span>
                 </div>
             </div>
             <footer className={classNames(styles.footer, elementsClassNames.footer)}>
                 <span className={styles.deliveryPrice}>
-                    <span>$</span>16.00
+                    <span>{currency}</span>
+                    {price}
                 </span>
-                <span className={styles.satisfactionScore}>4.6</span>
+                <span className={styles.satisfactionScore}>{rating}</span>
             </footer>
         </BaseCard>
     );
